@@ -12,8 +12,9 @@ answerResultEl = document.querySelector("#answer-result");
 scoreIndicatorEL = document.querySelector("#score-indicator");
 scoreEl = document.querySelector("#score");
 initialsSectionEl = document.querySelector("#initials-section")
+submitInitialsEl= document.querySelector("#submit-initials")
 
-var secondsLeft = 25;
+var secondsLeft = 20;
 var timer;
 //         - a score is kept depending on whether you answered correctly or incorrectly
 //     - create a variable that keeps track of my total score
@@ -63,7 +64,7 @@ function q1Correct() {
   answer3El.textContent = "Bug Net";
   answer4El.textContent = "Ocarina";
   answerResultEl.textContent = "Yes! You got it Right!";
-  userScore += 20;
+  userScore += 25;
   console.log(userScore);
   // remove previous click event listeners
   answer1El.removeEventListener("click", q1Correct);
@@ -105,7 +106,7 @@ function q2Correct() {
   answer3El.textContent = "Zelda";
   answer4El.textContent = "Vaati";
   answerResultEl.textContent = "Yes! You got it Right!";
-  userScore += 20;
+  userScore += 25;
   console.log(userScore);
   // remove previous click event listeners
   answer1El.removeEventListener("click", q2Correct);
@@ -147,7 +148,7 @@ function q3Correct() {
   answer3El.textContent = "A Whip that shoots lightning";
   answer4El.textContent = "His Dance Moves";
   answerResultEl.textContent = "Yes! You got it Right!";
-  userScore += 20;
+  userScore += 25;
   console.log(userScore);
   // remove previous click event listeners
   answer1El.removeEventListener("click", q2Correct);
@@ -189,7 +190,7 @@ function q4Correct() {
   answer3El.textContent = "Antagonist";
   answer4El.textContent = "Everyone Wins!";
   answerResultEl.textContent = "Yes! You got it Right!";
-  userScore += 20;
+  userScore += 25;
   console.log(userScore);
   // remove previous click event listeners
   answer1El.removeEventListener("click", q3Correct);
@@ -241,12 +242,25 @@ function resultsPage() {
   scoreIndicatorEL.style.display = "flex";
 //   show text block for entering initials
   initialsSectionEl.style.display = "flex"
-
 }
+
+//   clicking the submit button saves your initials and score to the console, displays the initials with your score in the leaderboard
 
 // if the timer runs out, it sends me to a "times up!" page with my score
 function timeUp() {
-    
+  // stop the timer
+  clearInterval(timer);
+  // update userScore to reflect results
+  scoreEl.textContent = userScore;
+  // show/hide necessary html elements
+  quizTitleEl.textContent = "Time is Up!";
+  quizTitleEl.style.display = "block";
+  questionEl.style.display = "none";
+  answers.style.display = "none";
+  answerResultEl.style.display = "none";
+  scoreIndicatorEL.style.display = "flex";
+//   show text block for entering initials
+  initialsSectionEl.style.display = "flex"
 }
 // - have a leaderboard page that has a stored list of all the times, ordered by highest score.
 //     - store my initials and score to the local memory
