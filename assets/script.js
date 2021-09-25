@@ -11,8 +11,9 @@ timerEl = document.querySelector("#timer-count");
 answerResultEl = document.querySelector("#answer-result");
 scoreIndicatorEL = document.querySelector("#score-indicator");
 scoreEl = document.querySelector("#score");
-initialsSectionEl = document.querySelector("#initials-section")
-submitInitialsEl= document.querySelector("#submit-initials")
+initialsSectionEl = document.querySelector("#initials-section");
+submitInitialsEl = document.querySelector("#submit-initials");
+initialsEl = document.querySelector("#initials")
 
 var secondsLeft = 20;
 var timer;
@@ -229,8 +230,8 @@ function q4Incorrect() {
 //     - after I am done answering all questions, the timer is stopped, the end time is added to my score, and the score is displayed
 //     - a text prompt for my initials displays on screen, along with a submit button that takes me to the leaderboard page
 function resultsPage() {
-    // stop the timer
-    clearInterval(timer);
+  // stop the timer
+  clearInterval(timer);
   // update userScore to reflect results
   scoreEl.textContent = userScore;
   // show/hide necessary html elements
@@ -240,11 +241,23 @@ function resultsPage() {
   answers.style.display = "none";
   answerResultEl.style.display = "none";
   scoreIndicatorEL.style.display = "flex";
-//   show text block for entering initials
-  initialsSectionEl.style.display = "flex"
+  //   show text block for entering initials
+  initialsSectionEl.style.display = "flex";
 }
 
 //   clicking the submit button saves your initials and score to the console, displays the initials with your score in the leaderboard
+submitInitialsEl.addEventListener("click", submitScore);
+function submitScore() {
+    // check to make sure there is something in the initials box
+    alert("Please Insert Initials in Text Box!")
+    if (initialsEl !== "") {
+        // send error saying "Please put something in the box!"
+    } else {
+        // save initials and score to the local storage
+        // display initials and score in the leaderboards page
+        // send user to the leaderboards page
+    }
+}
 
 // if the timer runs out, it sends me to a "times up!" page with my score
 function timeUp() {
@@ -259,8 +272,8 @@ function timeUp() {
   answers.style.display = "none";
   answerResultEl.style.display = "none";
   scoreIndicatorEL.style.display = "flex";
-//   show text block for entering initials
-  initialsSectionEl.style.display = "flex"
+  //   show text block for entering initials
+  initialsSectionEl.style.display = "flex";
 }
 // - have a leaderboard page that has a stored list of all the times, ordered by highest score.
 //     - store my initials and score to the local memory
