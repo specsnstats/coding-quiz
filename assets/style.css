@@ -8,15 +8,46 @@ body {
     flex-direction:column;
     align-items: center;
 }
-#question {
-    visibility: hidden;
+#answers {
+    display:none;
     list-style: none;
 }
 
 #quiz-title {
-
 }
 
 #highscores-link {
 
+}
+
+header {
+    display:flex;
+    justify-content: space-between;
+}
+
+#timer-text {
+    display:flex;
+    align-items: center;
+}
+
+#timer-count {
+    margin-right: 10px;
+}
+
+#question {
+    display:none;
+}
+
+#give-up-btn {
+    display:none;
+}
+
+.answer-btn {
+    margin: 20px;
+}
+
+button {
+    width: 150px;
+    background-color: darkviolet;
+    color: ghostwhite;
 }

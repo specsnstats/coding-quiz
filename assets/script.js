@@ -1,37 +1,62 @@
 quizTitleEl = document.querySelector("#quiz-title")
-pEl = document.querySelector("p")
+pBelowEl = document.querySelector("#p-below")
 questionEl = document.querySelector("#question")
+answers = document.querySelector("#answers")
 answer1El = document.querySelector("#answer1")
 answer2El = document.querySelector("#answer2")
 answer3El = document.querySelector("#answer3")
 answer4El = document.querySelector("#answer4")
 buttonAlwaysEl = document.querySelector("#button-always")
+timerEl = document.querySelector("#timer-count")
+
+var secondsLeft = 20
+var timer
+//         - a score is kept depending on whether you answered correctly or incorrectly
+var userScore = 0
 
 // - need a dynamic page that starts with the words "Quiz Challenge" on the screen with some basic words. 
-function startPage() {
-    quizTitleEl.textContent = "Quiz Challenge!"
-    pEl.textContent = "Come see if you have what it takes to finish my quiz with your sanity intact!"
-    //     - the starting dynamic page needs a "start quiz" button
-    buttonAlwaysEl.textContent = "Start Quiz"
+buttonAlwaysEl.addEventListener("click", question1)
+
+
+//         -create a timer that starts at 20s, and increments down 1 each second
+function countdown() {
+    timer=setInterval(function() {
+        secondsLeft --
+        timerEl.textContent = secondsLeft
+        if(secondsLeft === 0) {
+            clearInterval(timer)
+            console.log("time!")
+        }
+    }, 1000)
 }
 
-//         - create a dynamic button that triggers the series of questions
-//     - the starting dynamic page needs a timer
-//         -create a timer that starts at 20s, and increments down 1 each second
-//     - the starting dynamic page needs a "view highscores" button
-//         -create a button that says "view highscores"
-//         - when the button is pressed, it takes me to the highscores page
-//     - when I click the "start quiz" button, the timer starts
-//     - this needs to run as soon as the page loads
-startPage()
+// - when I click the "start quiz" button, the first dynamic page goes away and is replaced with a question page, asking a question:
+function question1() {
+    //     - when I click the "start quiz" button, the timer starts
+    countdown()
+    // when I press "start quiz", the title and sub text go away
+    quizTitleEl.style.display = "none"
+    pBelowEl.style.display = "none"
+    // and the button goes away
+    buttonAlwaysEl.style.display = "none"
+    // question and options appear
+    questionEl.style.display = "block"
+    answers.style.display = "block"
+    //         - when you click on the answers, it will generate text indicating either correct or incorrect
+    answer1El.addEventListener("click", q1a1(), true)
+    // answer2El.addEventListener("click", q1a2(), true)
+    // answer3El.addEventListener("click", q1a3(), true)
+    // answer4El.addEventListener("click", q1a4(), true)
+    function q1a1() {
+        if (answer1El === true) {
+            questionEl.textContent = "What is the protagonists weapon of choice?"
+            answer1El.textContent = "A stick"
+        }   
+    }
+}
 
-// - when I click the "start quiz" button, the first dynamic page goes away and is replaced with a question page, asking a question:   
-//     - create a series of questions that are in the form of multiple choice
-//         - create a list of 4 possible answers to each question
-//         - when you click on the answers, it will generate text indicating either correct or incorrect
-//         - a score is kept depending on whether you answered correctly or incorrectly
-//     - create a function that puts each question on the page after answering
 //     - a text below the new question will indicate whether or not you answered the previous one correctly
+//         - create a list of 4 possible answers to each question
 
 // - after I have finished answering all questions, a page with "all done!" and my final score tallied up is displayed
 //     - create a variable that keeps track of my total score
