@@ -51,3 +51,15 @@ button {
     background-color: darkviolet;
     color: ghostwhite;
 }
+#score-indicator {
+    display: none;
+    font-size: 30px;
+    font-weight: bolder;
+}
+#score {
+    margin-left: 15px;
+}
+
+#initials-section {
+    display:none;
+}
