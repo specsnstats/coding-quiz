@@ -25,9 +25,7 @@ var userScore = 0;
 // - need a dynamic page that starts with the words "Quiz Challenge" on the screen with some basic words.
 var page = window.location.href;
 console.log(page);
-if (page.includes("index")) {
-  buttonAlwaysEl.addEventListener("click", question1);
-}
+buttonAlwaysEl.addEventListener("click", question1);
 
 //         -create a timer that starts at 20s, and increments down 1 each second
 function countdown() {
