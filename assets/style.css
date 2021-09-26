@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#main {
+.main {
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -62,4 +62,14 @@ button {
 
 #initials-section {
     display:none;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bottom-hs-btns {
+    display: flex;
+    justify-content: center;
 }
