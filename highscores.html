@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Highscores</title>
 </head>
-<body>
+<body onload="highscoresLoad()">
     <main>
         <h1 class = main>Highscores</h1>
-        <ul >
-            <li id="scores">None!</li>
+        <ul id="highscores-list">
+
         </ul>
         <div id="bottom-hs-btns">
             <a href="./index.html"><button id = "go-back-btn">Go Back</button></a>
-            <button id= "clear-highscores-btn">Clear Highscores</button>
+            <button onclick="clearLocalStorage()" id= "clear-highscores-btn">Clear Highscores</button>
         </div>
     </main>
 
